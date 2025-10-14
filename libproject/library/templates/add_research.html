@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>إضافة بحث جديد</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>إضافة بحث جديد</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>عنوان البحث:</label>
+        <input type="text" name="titler" required>
+
+        <label>اسم المؤلف:</label>
+        <input type="text" name="authorr" required>
+
+        <button type="submit">حفظ البحث</button>
+    </form>
+
+    <div class="footer">
+        <a href="/research/">رجوع إلى قائمة البحوث</a>
+    </div>
+</div>
+
+</body>
+</html>

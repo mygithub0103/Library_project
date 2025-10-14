@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة البحوث</title>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            background: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button, a.btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        button:hover, a.btn:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fafafa;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>قائمة البحوث</h2>
+
+    <form method="get">
+        <input type="text" name="q" placeholder="اكتب اسم البحث للبحث عنه">
+        <button type="submit">بحث</button>
+        <a href="/research/" class="btn">عرض الكل</a>
+    </form>
+
+    <ul>
+        {% for r in research_list %}
+            <li>{{ r.titler }} — {{ r.authorr }}</li>
+        {% empty %}
+            <li>ماكو بحوث حالياً</li>
+        {% endfor %}
+    </ul>
+
+    <div class="footer">
+        <a href="/research/add/" class="btn">إضافة بحث جديد</a>
+    </div>
+</div>
+
+</body>
+</html>
